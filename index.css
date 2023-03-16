@@ -1,0 +1,40 @@
+.text-platzi {
+    color:  #97c93e !important;
+}
+
+body {
+    /*background: #EEF4ED;*/
+    background: #F9FBF2 !important;
+}
+
+#itc_logo {
+    width: 80px !important;
+    padding-top: 30px;
+}
+
+#header img {
+    width: 80px;
+}
+
+#footer {
+    background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5472);
+}
+
+#footer a {
+    color: white !important; 
+    text-decoration: none;
+}
+
+#footer p {
+    color: white !important; 
+}
+
+#footer a:hover {
+    color: gray;
+}
+
+#footer img {
+    width: 80px !important;
+    padding-top: 30px;
+}
+
