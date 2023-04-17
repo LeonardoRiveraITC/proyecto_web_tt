@@ -17,37 +17,7 @@
     <?php
     include "menu.php"
     ?>
-
-    <div class="container">
-        <p class="Lorem ipsum">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate ultrices malesuada. Etiam quis lacus a elit bibendum ullamcorper at a nisl. Vestibulum eu urna vitae velit congue bibendum id id dui. Sed varius, nibh eget bibendum facilisis, sem lorem luctus felis, sed pharetra est enim in diam. Sed ultrices, mauris sit amet semper malesuada, arcu nisl imperdiet tortor, vel ullamcorper velit arcu vel mi. Ut ac nibh nulla. Suspendisse eget bibendum nulla, at pretium nisl. Integer elementum sodales feugiat. Donec ac risus mi. Proin efficitur libero vel convallis suscipit.
-        </p>
-    </div>
-
-
-    <!--FOOTER-->
-    <div class="container-fluid">
-
-    </div>
-    <div class="container-fluid" id="footer">
-        <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3  border-top">
-            <p class="col-md-4 mb-0 text-muted">&copy; 2023 TecNM en Celaya</p>
-
-            <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-            </a>
-
-            <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Inicio</a></li>
-                <li class="nav-item"><a href="login.html" class="nav-link px-2 text-muted">Login</a></li>
-                <li class="nav-item"><a href="register.html" class="nav-link px-2 text-muted">Registrarse</a></li>
-                <li class="nav-item"><a href="about_us.html" class="nav-link px-2 text-muted">About Us</a></li>
-            </ul>
-        </footer>
-    </div>
-    <!--/FOOTER-->
+    
 </body>
 
 </html>
