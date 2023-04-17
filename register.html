@@ -49,28 +49,32 @@
     </div>
 
     <!--FORM-->
-    <div class="container">
+    <div class="container" actiion="register.php" method="post">
         <div class="row">
             <div class="col-12 col-md-6">
                 <form class="mb-3 mt-3 w-50 mx-auto">
                     <label for="nameInput" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nameRegister" placeholder="Ingrese su nombre">
+                    <input name="nombre" type="text" class="form-control" id="nameRegister" placeholder="Ingrese su nombre">
                     <label for="apellidoInput" class="form-label mt-3">Apellidos</label>
-                    <input type="text" class="form-control" id="apRegister" placeholder="Ingrese sus apellidos">
+                    <input name="apellido" type="text" class="form-control" id="apRegister" placeholder="Ingrese sus apellidos">
                     <label for="userInput" class="form-label mt-3">Usuario</label>
-                    <input type="text" class="form-control" id="userRegister" placeholder="Ingrese su usuario">
+                    <input name="usuario" type="text" class="form-control" id="userRegister" placeholder="Ingrese su usuario">
                 </form>
             </div>
             <div class="col-12 col-md-6">
                 <form class="mb-3 mt-3 w-50 mx-auto">
                     <label for="emailInput" class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="emailRegister"
+                    <input name="email" type="email" class="form-control" id="emailRegister"
                         placeholder="Ingrese su correo electrónico">
-                    <label for="passInput" class="form-label mt-3">Contraseña</label>
-                    <input type="password" class="form-control" id="passRegister" placeholder="Ingrese su contraseña">
-                    <label for="passConfirmInput" class="form-label mt-3">Confirmar contraseña</label>
-                    <input type="password" class="form-control" id="passConfirmRegister"
-                        placeholder="Confirme su contraseña">
+                        <label for="emailInput" class="form-label">Genero</label>
+                    <select name="genero" class="form-control">
+                        <option value="1">Femenino</option>
+                        <option value="2">Masculino</option>
+                    </select>
+                    <select name="preferenciaSexual" class="form-control">
+                        <option value="1">Femenino</option>
+                        <option value="2">Masculino</option>
+                    </select>
                 </form>
             </div>
             <div class="g-recaptcha mx-auto" data-sitekey="TU_CLAVE_PUBLICA"></div>
