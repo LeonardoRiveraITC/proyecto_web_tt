@@ -46,20 +46,17 @@ $_SESSION['captcha'] = $resu;
     ?>
 
     <!--FORM-->
-    <div class="container" action="registrarse.php" method="post">
+    <div class="container" >
         <div class="row">
-            <div class="col-12 col-md-6">
-                <form class="mb-3 mt-3 w-50 mx-auto">
+            <div class="col-12">
+                <form class="mb-3 mt-3 w-50 mx-auto" action="registrarse.php" method="post">
                     <label for="nameInput" class="form-label">Nombre</label>
                     <input name="nombre" type="text" class="form-control" id="nameRegister" placeholder="Ingrese su nombre">
                     <label for="apellidoInput" class="form-label mt-3">Apellidos</label>
                     <input name="apellido" type="text" class="form-control" id="apRegister" placeholder="Ingrese sus apellidos">
                     <label for="userInput" class="form-label mt-3">Usuario</label>
                     <input name="usuario" type="text" class="form-control" id="userRegister" placeholder="Ingrese su usuario">
-                </form>
-            </div>
-            <div class="col-12 col-md-6">
-                <form class="mb-3 mt-3 w-50 mx-auto">
+            
                     <label for="emailInput" class="form-label">Correo electrónico</label>
                     <input name="email" type="email" class="form-control" id="emailRegister" placeholder="Ingrese su correo electrónico">
                     <label for="emailInput" class="form-label">Genero</label>
@@ -77,10 +74,9 @@ $_SESSION['captcha'] = $resu;
 
                     <label for="captchaInput" class="form-label">Captcha</label>
                     <input name="captcha" type="text" class="form-control" placeholder="<?= $captcha; ?>" required>
+                
+                    <input type="submit" class="btn btn-dark mx-auto mt-3 w-25" value="Registrar, perra!!!">
                 </form>
-            </div>
-            <div class="d-flex justify-content-center align-items-center">
-                <button type="button" class="btn btn-dark mx-auto mt-3 w-25">Iniciar sesión</button>
             </div>
         </div>
     </div>
