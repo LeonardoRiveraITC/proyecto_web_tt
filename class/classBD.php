@@ -15,8 +15,8 @@ class baseDatos {
         if (strpos(strtoupper($p_sql), "SELECT") != false) {
             $this->numeRegistros = mysqli_num_rows($this->bloqueRegistros);
 
-            if (mysqli_error() > "") {
-                echo mysqli_error() . " " . $p_sql;
+            if (mysqli_error($this->conexion) > "") {  //  por si la cago y pongo un insert
+                echo mysqli_error($this->conexion) . " " . $p_sql;
                 exit;
             }
         }
@@ -54,3 +54,4 @@ class baseDatos {
 }
 
 $objeBD = new baseDatos();
+?>

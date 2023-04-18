@@ -20,18 +20,25 @@
     <div class="container">
         <div class="row">
             <form class="mb-3 mt-3 w-25 mx-auto" action="validar.php" method="get">
-                <label for="userInput" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usrLogin" placeholder="Ingrese su usuario">
+                <label for="emailInput" class="form-label">Email</label>
+                <input name="email" type="text" class="form-control"placeholder="Ingrese su email">
                 <label for="passInput" class="form-label mt-3">Contraseña</label>
-                <input type="text" class="form-control" id="passLogin" placeholder="Ingrese su contraseña">
+                <input name="password" type="password" class="form-control" placeholder="Ingrese su contraseña">
 
+                <input type="submit" class="btn btn-dark mx-auto mt-3 w-25" value="Iniciar sesión">
             </form>
-            <div class="d-flex justify-content-center align-items-center">
+            <!-- <div class="d-flex justify-content-center align-items-center">
                 <button type="button" class="btn btn-dark mx-auto mt-3 w-25">Iniciar sesión</button>
-            </div>
+            </div> -->
         </div>
     </div>
     <!--/FORM-->
 </body>
 
 </html>
+
+<?php
+if (isset($_GET['e'])) {
+    echo '<h3>Hubo un error en los datos: error' . $_GET['e'] . '</h3>';
+}
+?>
