@@ -20,7 +20,7 @@ if (!isset($_SESSION['nombre'])) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tendencia.php">Tendencias</a>
+                    <a class="nav-link" href="tendencias.php">Tendencias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">opci2</a>
