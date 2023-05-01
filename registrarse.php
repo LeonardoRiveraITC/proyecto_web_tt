@@ -30,8 +30,8 @@ $mail->SMTPDebug  = 1;  // enables SMTP debug information (for testing)
 $mail->SMTPAuth = true;   //enable SMTP authentication
 
 $mail->Username =   "20031030@itcelaya.edu.mx"; // SMTP account username
-//  ksrpoatgrjmrrbnb
-$mail->Password = "ksrpoatgrjmrrbnb";  // SMTP account password
+
+$mail->Password = "";  // SMTP account password
 
 $mail->From = "";
 $mail->FromName = "";
