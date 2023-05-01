@@ -11,14 +11,14 @@ class baseDatos
 
     function conecta()
     {
-        $this->conexion = mysqli_connect("localhost", "root", "", "mitinder"); // or die("No se puede conectar");
+        $this->conexion = mysqli_connect("localhost", "root", "", "mitinderalfres"); // or die("No se puede conectar");
     }
 
     function consulta($p_sql)
     {  //  solo para select, si meto insert da error
         $this->conecta();
         $this->bloqueRegistros = mysqli_query($this->conexion, $p_sql);
-        if (strpos(strtoupper($p_sql), "SELECT") != false) {
+        if (strpos(strtoupper($p_sql), "SELECT") !== false) {
             $this->numeRegistros = mysqli_num_rows($this->bloqueRegistros);
 
             $this->numeColumnas = mysqli_num_fields($this->bloqueRegistros);

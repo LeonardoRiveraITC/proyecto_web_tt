@@ -39,7 +39,7 @@ if (!isset($_SESSION['nombre'])) {
                     </div>
                 </li>
             </ul>
-            <?= $_SESSION['nombre']; ?>
+            <?php $_SESSION['nombre']; ?>
         </div>
     </div>
 </nav>

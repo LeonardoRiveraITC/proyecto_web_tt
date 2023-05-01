@@ -1,4 +1,4 @@
-<?
+<?php
 
 include "../class/classBD.php";
 class Tendencia extends baseDatos
@@ -6,35 +6,48 @@ class Tendencia extends baseDatos
 
     function list()
     {
-        $this->consulta("Select idTendencia, Nombre from catatendencia");
+        $this->consulta("SELECT * FROM catatendencia order by Nombre");
+        $html = '<table class="table table-hover table-striped">';
 
-        /*
-        foreach($this->bloqueRegistros as $registro){
-            $html.='<option value="'.$registro[$IdPk].'">'.$registro[$nombCampDesplegar].'</option>';
-        }*/
-
-        /* El que yo hice */
-        $html = '<table class="table table-hover" border="1" width="40%">';
-        $i = 0;
-        while ($row = mysqli_fetch_assoc($this->bloqueRegistros)) {
-            $html .= '<tr>';
-            for ($col = 1; $col <= 2; $col++) {
-                if ($i == 0) {
-                    $html .= "<td>" . $row['idTendencia'] . "</td>";
-                } else if ($i == 1) {
-                    $html .= "<td>" . $row['Nombre'] . "</td>";
-                } else {
-                    $html .= "<td></td>";
-                }
-                $i++;
-                if ($i == 2)
-                    $i = 0;
-            }
-            $html .= '</tr>';
+        $html .= '<thead><tr class="table-primary">
+                            <td colspan="2">
+                                <form method="post" action="tendencia.php">
+                                <input type="image" src ="../Imagenes/add.png" width="24px" />
+                                <input type="hidden" name="accion" value="formNew"/>
+                                </form> 
+                            </td>';
+        for ($enca = 1; $enca <= $this->numeColumnas; $enca++) {
+            $html .= '<th>' . $this->nombColumnas[$enca-1]->name . '</th>';
         }
+        $html .= "</tr></thead><tbody>";
+        for ($ren = 1; $ren <= $this->numeRegistros; $ren++) {
+            $html .= '<tr>';
+            
+            $datos = $this->getRecord();
+
+            $html.='<td>
+                        <form method="post" action="tendencia.php">
+                        <input type="image" src="../Imagenes/crear.png" width="24px" />
+                        <input type="hidden" name="id" value='.$datos[0].' />
+                        <input type="hidden" name="accion" value="formEdit"/>
+                        </form>
+                    </td>
+                    
+                    <td>
+                        <form method="post" action="tendencia.php">
+                        <input type="image" src="../Imagenes/borrar.png" width="24px" />
+                        <input type="hidden" name="id" value='.$datos[0].'  />
+                        <input type="hidden" name="accion" value="borrar"/>
+                        </form>
+                    </td>';
+            for ($col = 1; $col <= $this->numeColumnas; $col++) {
+                $html .= "<td>".$datos[$col-1]."</td";
+                $html .= '</tr>';
+            }
+        }
+        $html .= '</tbody>';
         $html .= '</table>';
         return $html;
-        //return "Mostrar el listado de registros en la BD";
     }
 
     function lista()
