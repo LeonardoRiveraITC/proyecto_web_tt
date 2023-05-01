@@ -66,7 +66,7 @@ class Tendencia extends baseDatos
         for ($ren = 0; $ren < $this->numeRegistros; $ren++) {
             $html .= '<tr>';
             $datos = $this->getRecord();
-            $html .= '<td><img src="../imagenes/lapiz.png" width="24px" /></td><td><img src="../imagenes/trash.png" width="24px" /></td>';
+            $html .= '<td><img src="../img/lapiz.png" width="24px" /></td><td><img src="../img/trash.png" width="24px" /></td>';
             for ($col = 0; $col < $this->numeColumnas; $col++) {
                 $html .= "<td>" . $datos[$col] . "</td>";
             }

@@ -11,7 +11,7 @@ class baseDatos
 
     function conecta()
     {
-        $this->conexion = mysqli_connect("localhost", "root", "", "mitinderalfres"); // or die("No se puede conectar");
+        $this->conexion = mysqli_connect("localhost", "root", "", "mitinder"); // or die("No se puede conectar");
     }
 
     function consulta($p_sql)
