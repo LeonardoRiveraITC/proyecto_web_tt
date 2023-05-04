@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 25, 2023 at 06:45 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 04-05-2023 a las 09:47:42
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mitinder`
+-- Base de datos: `mitinder`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catagenero`
+-- Estructura de tabla para la tabla `calificacion`
+--
+
+CREATE TABLE `calificacion` (
+  `idCalificacion` int(11) NOT NULL,
+  `idCita` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `calificacion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `catagenero`
 --
 
 CREATE TABLE `catagenero` (
@@ -33,7 +46,7 @@ CREATE TABLE `catagenero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
--- Dumping data for table `catagenero`
+-- Volcado de datos para la tabla `catagenero`
 --
 
 INSERT INTO `catagenero` (`idGenero`, `Nombre`) VALUES
@@ -43,7 +56,18 @@ INSERT INTO `catagenero` (`idGenero`, `Nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catarol`
+-- Estructura de tabla para la tabla `catagustos`
+--
+
+CREATE TABLE `catagustos` (
+  `idGusto` int(11) NOT NULL,
+  `Nombre` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `catarol`
 --
 
 CREATE TABLE `catarol` (
@@ -52,7 +76,7 @@ CREATE TABLE `catarol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
--- Dumping data for table `catarol`
+-- Volcado de datos para la tabla `catarol`
 --
 
 INSERT INTO `catarol` (`idRol`, `Nombre`) VALUES
@@ -62,7 +86,7 @@ INSERT INTO `catarol` (`idRol`, `Nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catatendencia`
+-- Estructura de tabla para la tabla `catatendencia`
 --
 
 CREATE TABLE `catatendencia` (
@@ -71,7 +95,7 @@ CREATE TABLE `catatendencia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
--- Dumping data for table `catatendencia`
+-- Volcado de datos para la tabla `catatendencia`
 --
 
 INSERT INTO `catatendencia` (`idTendencia`, `Nombre`) VALUES
@@ -87,7 +111,46 @@ INSERT INTO `catatendencia` (`idTendencia`, `Nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `cita`
+--
+
+CREATE TABLE `cita` (
+  `idCita` int(11) NOT NULL,
+  `lugar` text NOT NULL,
+  `observaciones` text NOT NULL,
+  `fecha` datetime NOT NULL,
+  `idInvita` int(11) NOT NULL,
+  `idAcepta` int(11) NOT NULL,
+  `idEstatus` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estatus`
+--
+
+CREATE TABLE `estatus` (
+  `idEstatus` int(11) NOT NULL,
+  `nombre` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuagustos`
+--
+
+CREATE TABLE `usuagustos` (
+  `idUsuaGusto` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `idGusto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -105,41 +168,77 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`Correo`, `Nombre`, `Apellidos`, `Pwd`, `Telefono`, `numeAccesos`, `fechaUltAcceso`, `idGenero`, `id`, `idCataTendencia`, `idRol`) VALUES
 ('20030652@itcelaya.edu.mx', 'ales', 'leon', '*B88F0DADA983436539DCA5F63B73F53C21E99229', '461-254-43', 0, '0000-00-00 00:00:00', 2, 3, 1, 1),
 ('20031003@itcelaya.edu.mx', 'prueba', 'prueba', '*A8D9593BDB13A78609CFA3FDD39BAD77C7C6DBD0', '461-123-45', 0, '2023-03-30 09:37:09', 2, 11, 2, 1),
-('20031030@itcelaya.edu.mx', 'alfito', 'aramburo', '*E76CC101D34801CE24B81AD9FAA229BAC6C61CB7', '461-140-01', 0, '0000-00-00 00:00:00', 2, 4, 1, 1),
+('20031030@itcelaya.edu.mx', 'Alfito', 'Equisde', '*23DE6874DE55999B0D25DA1EA01963CEEE57E26E', '66642069', 2, '2023-04-30 11:08:38', 2, 12, 1, 1),
 ('admin@ttinder.com', 'Yomero', 'Sponja', '*E73B1F3C0B737D51EAC590F7750C979FE2B27FD9', '334343', 0, '2023-03-14 17:18:45', 1, 2, 2, 2),
 ('prueba1@gmail.com', 'ales', 'marin', '1234', '827662', 0, '2023-03-28 17:34:24', 2, 6, 1, 1),
 ('user1@ttinder.com', 'Brandon', 'Martinez', '*0BCB218B7F4075B859D4149600DC0C7634C7E2B4', '827662', 0, '2023-03-14 17:18:45', 2, 1, 1, 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `catagenero`
+-- Indices de la tabla `calificacion`
+--
+ALTER TABLE `calificacion`
+  ADD PRIMARY KEY (`idCalificacion`),
+  ADD KEY `idUsuario` (`idUsuario`);
+
+--
+-- Indices de la tabla `catagenero`
 --
 ALTER TABLE `catagenero`
   ADD PRIMARY KEY (`idGenero`);
 
 --
--- Indexes for table `catarol`
+-- Indices de la tabla `catagustos`
+--
+ALTER TABLE `catagustos`
+  ADD PRIMARY KEY (`idGusto`);
+
+--
+-- Indices de la tabla `catarol`
 --
 ALTER TABLE `catarol`
   ADD PRIMARY KEY (`idRol`);
 
 --
--- Indexes for table `catatendencia`
+-- Indices de la tabla `catatendencia`
 --
 ALTER TABLE `catatendencia`
   ADD PRIMARY KEY (`idTendencia`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `cita`
+--
+ALTER TABLE `cita`
+  ADD PRIMARY KEY (`idCita`),
+  ADD KEY `idInvita` (`idInvita`),
+  ADD KEY `idAcepta` (`idAcepta`),
+  ADD KEY `idEstatus` (`idEstatus`);
+
+--
+-- Indices de la tabla `estatus`
+--
+ALTER TABLE `estatus`
+  ADD PRIMARY KEY (`idEstatus`);
+
+--
+-- Indices de la tabla `usuagustos`
+--
+ALTER TABLE `usuagustos`
+  ADD PRIMARY KEY (`idUsuaGusto`),
+  ADD KEY `idGusto` (`idGusto`),
+  ADD KEY `idUsuario` (`idUsuario`);
+
+--
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`Correo`),
@@ -149,39 +248,90 @@ ALTER TABLE `usuario`
   ADD KEY `idCataTendencia` (`idCataTendencia`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `catagenero`
+-- AUTO_INCREMENT de la tabla `calificacion`
+--
+ALTER TABLE `calificacion`
+  MODIFY `idCalificacion` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `catagenero`
 --
 ALTER TABLE `catagenero`
   MODIFY `idGenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `catarol`
+-- AUTO_INCREMENT de la tabla `catagustos`
+--
+ALTER TABLE `catagustos`
+  MODIFY `idGusto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `catarol`
 --
 ALTER TABLE `catarol`
   MODIFY `idRol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `catatendencia`
+-- AUTO_INCREMENT de la tabla `catatendencia`
 --
 ALTER TABLE `catatendencia`
   MODIFY `idTendencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `cita`
+--
+ALTER TABLE `cita`
+  MODIFY `idCita` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estatus`
+--
+ALTER TABLE `estatus`
+  MODIFY `idEstatus` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuagustos`
+--
+ALTER TABLE `usuagustos`
+  MODIFY `idUsuaGusto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `usuario`
+-- Filtros para la tabla `calificacion`
+--
+ALTER TABLE `calificacion`
+  ADD CONSTRAINT `calificacion_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `cita`
+--
+ALTER TABLE `cita`
+  ADD CONSTRAINT `cita_ibfk_1` FOREIGN KEY (`idInvita`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `cita_ibfk_2` FOREIGN KEY (`idAcepta`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `cita_ibfk_3` FOREIGN KEY (`idEstatus`) REFERENCES `estatus` (`idEstatus`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `usuagustos`
+--
+ALTER TABLE `usuagustos`
+  ADD CONSTRAINT `usuagustos_ibfk_1` FOREIGN KEY (`idGusto`) REFERENCES `catagustos` (`idGusto`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuagustos_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `catarol` (`idRol`) ON UPDATE CASCADE,
