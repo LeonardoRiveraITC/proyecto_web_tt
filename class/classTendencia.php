@@ -17,18 +17,18 @@ class Tendencia extends baseDatos
                                 </form> 
                             </td>';
         for ($enca = 1; $enca <= $this->numeColumnas; $enca++) {
-            $html .= '<th>' . $this->nombColumnas[$enca-1]->name . '</th>';
+            $html .= '<th>' . $this->nombColumnas[$enca - 1]->name . '</th>';
         }
         $html .= "</tr></thead><tbody>";
         for ($ren = 1; $ren <= $this->numeRegistros; $ren++) {
             $html .= '<tr>';
-            
+
             $datos = $this->getRecord();
 
-            $html.='<td>
+            $html .= '<td>
                         <form method="post" action="tendencia.php">
                         <input type="image" src="../Imagenes/crear.png" width="24px" />
-                        <input type="hidden" name="id" value='.$datos[0].' />
+                        <input type="hidden" name="id" value=' . $datos[0] . ' />
                         <input type="hidden" name="accion" value="formEdit"/>
                         </form>
                     </td>
@@ -36,12 +36,12 @@ class Tendencia extends baseDatos
                     <td>
                         <form method="post" action="tendencia.php">
                         <input type="image" src="../Imagenes/borrar.png" width="24px" />
-                        <input type="hidden" name="id" value='.$datos[0].'  />
+                        <input type="hidden" name="id" value=' . $datos[0] . '  />
                         <input type="hidden" name="accion" value="borrar"/>
                         </form>
                     </td>';
             for ($col = 1; $col <= $this->numeColumnas; $col++) {
-                $html .= "<td>".$datos[$col-1]."</td";
+                $html .= "<td>" . $datos[$col - 1] . "</td";
                 $html .= '</tr>';
             }
         }
@@ -54,9 +54,9 @@ class Tendencia extends baseDatos
     {
         //$this->consulta("SELECT * from catatendencia order by Nombre");
         $this->consulta("Select idTendencia, Nombre from catatendencia");
-        $html = '<table class="table table-success table-hover">';
+        $html = '<table class="table table-hover table-striped table-dark">';
 
-        $html .= '<tr class="table-light"><td colspan="2"><img src="../imagenes/plus.png" width="24px" /></td>';
+        $html .= '<tr><td colspan="2"><img src="../img/plus.png" width="24px" /></td>';
 
         for ($col = 0; $col < $this->numeColumnas; $col++) { //cabeceras
             $html .= '<th>' . $this->nombColumnas[$col]->name . '</th>';
@@ -68,7 +68,7 @@ class Tendencia extends baseDatos
             $datos = $this->getRecord();
             $html .= '<td><img src="../img/lapiz.png" width="24px" /></td><td><img src="../img/trash.png" width="24px" /></td>';
             for ($col = 0; $col < $this->numeColumnas; $col++) {
-                $html .= "<td>" . $datos[$col] . "</td>";
+                $html .= '<td>' . $datos[$col] . '</td>';
             }
             $html .= '</tr>';
         }

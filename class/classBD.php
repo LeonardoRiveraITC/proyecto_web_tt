@@ -19,9 +19,10 @@ class baseDatos
         $this->conecta();
         $this->bloqueRegistros = mysqli_query($this->conexion, $p_sql);
         if (strpos(strtoupper($p_sql), "SELECT") !== false) {
+            
             $this->numeRegistros = mysqli_num_rows($this->bloqueRegistros);
-
             $this->numeColumnas = mysqli_num_fields($this->bloqueRegistros);
+
             for ($temp = 0; $temp < $this->numeColumnas; $temp++) {
                 $this->nombColumnas[$temp] = mysqli_fetch_field_direct($this->bloqueRegistros, $temp);
             }
