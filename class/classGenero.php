@@ -5,7 +5,7 @@ class genero extends baseDatos
     function list()
     {
         $this->consulta("SELECT * FROM catagenero order by Nombre");
-        $html = '<table class="table table-hover table-striped">';
+        $html = '<table class="table table-hover table-striped table-dark">';
 
         $html .= '<thead><tr class="table-primary">
                             <td colspan="2">

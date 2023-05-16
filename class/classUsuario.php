@@ -5,7 +5,7 @@ class Usuario extends baseDatos
     function list()
     {
         $this->consulta("SELECT id,Correo,concat(Nombre,' ',Apellidos) as nombre,fechaUltAcceso FROM usuario order by Nombre");
-        $html = '<table class="table table-hover table-striped">';
+        $html = '<table class="table table-hover table-striped table-dark">';
 
         $html .= '<thead><tr class="table-primary">
                             <td colspan="2">
@@ -32,8 +32,9 @@ class Usuario extends baseDatos
                     </td>
                     
                     <td>
-                        <form method="post" action="usuario.php">
-                        <input type="image" src="../img/trash.png" width="24px" />
+                        <form method="post" action="usuario.php" 
+                        onsubmit="return confirm(\'Estas seguro?\')">
+                        <input type="image" src="../img/trash.png" width="24px"/>
                         <input type="hidden" name="id" value='.$datos[0].'  />
                         <input type="hidden" name="accion" value="borrar"/>
                         </form>

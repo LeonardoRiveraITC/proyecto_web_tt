@@ -5,9 +5,9 @@ class Gustos extends baseDatos
     function list()
     {
         $this->consulta("SELECT * FROM catagustos order by Nombre");
-        $html = '<table class="table table-hover table-striped">';
+        $html = '<table class="table table-hover table-striped table-dark">';
 
-        $html .= '<thead><tr class="table-primary">
+        $html .= '<thead><tr class="table-primary table-dark">
                             <td colspan="2">
                                 <form method="post" action="gustos.php">
                                 <input type="image" src ="../img/plus.png" width="24px" />

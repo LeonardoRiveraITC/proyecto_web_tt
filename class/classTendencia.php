@@ -12,7 +12,7 @@ class Tendencia extends baseDatos
         $html .= '<thead><tr class="table-primary">
                             <td colspan="2">
                                 <form method="post" action="tendencia.php">
-                                <input type="image" src ="../Imagenes/add.png" width="24px" />
+                                <input type="image" src ="../img/add.png" width="24px" />
                                 <input type="hidden" name="accion" value="formNew"/>
                                 </form> 
                             </td>';
@@ -35,7 +35,7 @@ class Tendencia extends baseDatos
                     
                     <td>
                         <form method="post" action="tendencia.php">
-                        <input type="image" src="../Imagenes/borrar.png" width="24px" />
+                        <input type="image" src="../img/borrar.png" width="24px" />
                         <input type="hidden" name="id" value=' . $datos[0] . '  />
                         <input type="hidden" name="accion" value="borrar"/>
                         </form>
