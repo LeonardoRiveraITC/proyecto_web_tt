@@ -24,7 +24,17 @@
         <?php
         include "../class/classTendencia.php";
         //echo $objeTendencia->list();
-        echo $objeTendencia->lista();
+        //echo $objeTendencia->lista();
+
+
+        if (isset($_POST['accion']) && isset($_POST['id'])) {
+            echo $objeTendencia->ejecuta($_POST['accion'], $_POST['id']);
+        } else {
+            if (isset($_POST['accion'])) {
+                echo $objeTendencia->ejecuta($_POST['accion']);
+            } else
+                echo $objeTendencia->lista();
+        }
         ?>
     </div>
 </body>
