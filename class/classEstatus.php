@@ -5,7 +5,7 @@ class Estatus extends baseDatos
     function list()
     {
         $this->consulta("SELECT * FROM estatus order by nombre");
-        $html = '<table class="table table-hover table-striped">';
+        $html = '<table class="table table-hover table-striped table-dark">';
 
         $html .= '<thead><tr class="table-primary">
                             <td colspan="2">
@@ -24,7 +24,7 @@ class Estatus extends baseDatos
             $datos = $this->getRecord();
 
             $html.='<td>
-                        <form method="post" action="estatus.php">
+                        <form method="post" action="../admin/estatus.php">
                         <input type="image" src="../img/crear.png" width="24px" />
                         <input type="hidden" name="id" value='.$datos[0].' />
                         <input type="hidden" name="accion" value="formEdit"/>
@@ -32,8 +32,9 @@ class Estatus extends baseDatos
                     </td>
                     
                     <td>
-                        <form method="post" action="estatus.php">
-                        <input type="image" src="../img/borrar.png" width="24px" />
+                        <form method="post" action="../admin/estatus.php" onsubmit="return confirm(\'Estas seguro?\')">
+                        <input type="image" src="../img/borrar.png" width="24px" 
+                        />
                         <input type="hidden" name="id" value='.$datos[0].'  />
                         <input type="hidden" name="accion" value="borrar"/>
                         </form>
@@ -52,7 +53,7 @@ class Estatus extends baseDatos
         $html="";
         switch($p_accion){
             case 'formEdit':
-                $registro=$this->getTupla("select * from estatus where idEstatus=".$p_id);
+                $registro=$this->getTupla("SELECT * FROM estatus WHERE idEstatus=".$p_id);
             case 'formNew':
                 
 
@@ -105,6 +106,19 @@ class Estatus extends baseDatos
                 $html=$p_accion."No esta programada en classEstatus";        
         }
         return $html;
-    }
+    }//close function
+
+    // function estatus(accion) {
+    //     switch(accion) {
+    //         case 'formNew': $.confirm({
+    //             title: "Nuevo estatus"
+    //         })
+    //     }
+    // }
 }
 $objeEstatus = new Estatus();
+
+
+
+// if(isset($_GET['accion'])) 
+// echo $objeEstatus

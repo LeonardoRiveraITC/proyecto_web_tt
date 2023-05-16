@@ -4,12 +4,12 @@ class Zodiaco extends baseDatos
 {
     function list()
     {
-        $this->consulta("SELECT * FROM catazodiaco order by Nombre");
-        $html = '<table class="table table-hover table-striped">';
+        $this->consulta("SELECT * FROM zodiaco order by nombre");
+        $html = '<table class="table table-hover table-striped table-dark">';
 
         $html .= '<thead><tr class="table-primary">
                             <td colspan="2">
-                                <form method="post" action="zodiaco.php">
+                                <form method="post" action="../admin/zodiaco.php">
                                 <input type="image" src ="../img/plus.png" width="24px" />
                                 <input type="hidden" name="accion" value="formNew"/>
                                 </form> 
@@ -24,7 +24,7 @@ class Zodiaco extends baseDatos
             $datos = $this->getRecord();
 
             $html.='<td>
-                        <form method="post" action="zodiaco.php">
+                        <form method="post" action="../admin/zodiaco.php">
                         <input type="image" src="../img/lapiz.png" width="24px" />
                         <input type="hidden" name="id" value='.$datos[0].' />
                         <input type="hidden" name="accion" value="formEdit"/>
@@ -32,7 +32,7 @@ class Zodiaco extends baseDatos
                     </td>
                     
                     <td>
-                        <form method="post" action="zodiaco.php">
+                        <form method="post" action="../admin/zodiaco.php">
                         <input type="image" src="../img/trash.png" width="24px" />
                         <input type="hidden" name="id" value='.$datos[0].'  />
                         <input type="hidden" name="accion" value="borrar"/>
