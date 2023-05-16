@@ -15,10 +15,11 @@
 </head>
 
 <body>
+    
     <?php
     include "menu.php";
     ?>
-
+    <br>
     <div class="container">
         <?php
         include "../class/classTendencia.php";

@@ -54,9 +54,9 @@ class Tendencia extends baseDatos
     {
         //$this->consulta("SELECT * from catatendencia order by Nombre");
         $this->consulta("Select idTendencia, Nombre from catatendencia");
-        $html = '<table class="table table-hover table-striped table-dark">';
+        $html = '<table class="table table-hover table-striped table-light">';
 
-        $html .= '<tr><td colspan="2"><img src="../img/plus.png" width="24px" /></td>';
+        $html .= '<tr class="table-primary table-dark"><td colspan="2"><img src="../img/plus.png" width="24px" /></td>';
 
         for ($col = 0; $col < $this->numeColumnas; $col++) { //cabeceras
             $html .= '<th>' . $this->nombColumnas[$col]->name . '</th>';

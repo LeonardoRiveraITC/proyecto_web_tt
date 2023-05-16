@@ -5,9 +5,9 @@ class Estatus extends baseDatos
     function list()
     {
         $this->consulta("SELECT * FROM estatus order by nombre");
-        $html = '<table class="table table-hover table-striped table-dark">';
+        $html = '<table class="table table-hover table-striped table-light">';
 
-        $html .= '<thead><tr class="table-primary">
+        $html .= '<thead><tr class="table-dark">
                             <td colspan="2">
                                 <form method="post" action="estatus.php">
                                 <input type="image" src ="../img/plus.png" width="24px" />

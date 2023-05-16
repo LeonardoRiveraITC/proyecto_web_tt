@@ -5,7 +5,7 @@ class Gustos extends baseDatos
     function list()
     {
         $this->consulta("SELECT * FROM catagustos order by Nombre");
-        $html = '<table class="table table-hover table-striped table-dark">';
+        $html = '<table class="table table-hover table-striped table-light">';
 
         $html .= '<thead><tr class="table-primary table-dark">
                             <td colspan="2">
