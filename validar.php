@@ -47,6 +47,7 @@ if(isset($_GET['email']) && isset($_GET['password'])){
         if($objeBD->bloqueRegistros){
             $_SESSION['nombre']=$registro->Nombre." ".$registro->Apellidos;
             $_SESSION['correo']=$registro->Correo;
+            $_SESSION['idRol']=$registro->idRol;
             $_SESSION['id']=$registro->id;
             if($registro->idRol==2){
                 header("location: admin/home.php");

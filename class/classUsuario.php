@@ -7,9 +7,16 @@ class Usuario extends baseDatos
         $this->consulta("SELECT id,Correo,concat(Nombre,' ',Apellidos) as nombre,fechaUltAcceso FROM usuario order by Nombre");
         $html = '<table class="table table-hover table-striped table-light">';
 
-        $html .= '<thead><tr class="table-dark">
+        // $html .= '<thead><tr class="table-dark">
+        //                     <td colspan="2">
+        //                         <form method="post" action="usuario.php">
+        //                         <input type="image" src ="../img/plus.png" width="24px" />
+        //                         <input type="hidden" name="accion" value="formNew"/>
+        //                         </form> 
+        //                     </td>';
+        $html .= '<thead><tr class="table-primary">
                             <td colspan="2">
-                                <form method="post" action="usuario.php">
+                                <form method="post" action="Usuario.php">
                                 <input type="image" src ="../img/plus.png" width="24px" />
                                 <input type="hidden" name="accion" value="formNew"/>
                                 </form> 
@@ -23,19 +30,35 @@ class Usuario extends baseDatos
             
             $datos = $this->getRecord();
 
-            $html.='<td>
+            // $html.='<td>
+            //             <form method="post" action="usuario.php">
+            //             <input type="image" src="../img/lapiz.png" width="24px" />
+            //             <input type="hidden" name="id" value='.$datos[0].' />
+            //             <input type="hidden" name="accion" value="formEdit"/>
+            //             </form>
+            //         </td>
+                    
+            //         <td>
+            //             <form method="post" action="usuario.php" 
+            //             onsubmit="return confirm(\'Estas seguro?\')">
+            //             <input type="image" src="../img/trash.png" width="24px"/>
+            //             <input type="hidden" name="id" value='.$datos[0].'  />
+            //             <input type="hidden" name="accion" value="borrar"/>
+            //             </form>
+            //         </td>';
+
+            $html .= '<td>
                         <form method="post" action="usuario.php">
                         <input type="image" src="../img/lapiz.png" width="24px" />
-                        <input type="hidden" name="id" value='.$datos[0].' />
+                        <input type="hidden" name="id" value=' . $datos[0] . ' />
                         <input type="hidden" name="accion" value="formEdit"/>
                         </form>
                     </td>
                     
                     <td>
-                        <form method="post" action="usuario.php" 
-                        onsubmit="return confirm(\'Estas seguro?\')">
-                        <input type="image" src="../img/trash.png" width="24px"/>
-                        <input type="hidden" name="id" value='.$datos[0].'  />
+                        <form method="post" action="usuario.php">
+                        <input type="image" src="../img/trash.png" width="24px" />
+                        <input type="hidden" name="id" value=' . $datos[0] . '  />
                         <input type="hidden" name="accion" value="borrar"/>
                         </form>
                     </td>';

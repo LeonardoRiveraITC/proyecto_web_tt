@@ -11,7 +11,7 @@ class baseDatos
 
     function conecta()
     {
-        $this->conexion = mysqli_connect("localhost", "root", "", "mitinder2"); // or die("No se puede conectar");
+        $this->conexion = mysqli_connect("localhost", "root", "", "mitinder"); // or die("No se puede conectar");
     }
 
     function consulta($p_sql)
@@ -19,7 +19,7 @@ class baseDatos
         $this->conecta();
         $this->bloqueRegistros = mysqli_query($this->conexion, $p_sql);
         if (strpos(strtoupper($p_sql), "SELECT") !== false) {
-            
+
             $this->numeRegistros = mysqli_num_rows($this->bloqueRegistros);
             $this->numeColumnas = mysqli_num_fields($this->bloqueRegistros);
 
@@ -51,14 +51,17 @@ class baseDatos
         return mysqli_fetch_object($this->bloqueRegistros);
     }
 
-    function crearLista($p_query, $nombLista, $IdPk, $nombCampDesplegar)
+    function crearLista($p_query, $nombLista, $idPk, $nombCampDesplegar, $p_seleccionado = 0)
     {
         $html = '<select class="form-control" name="' . $nombLista . '">';
 
         $this->consulta($p_query);
 
         foreach ($this->bloqueRegistros as $registro) {
-            $html .= '<option value="' . $registro[$IdPk] . '">' . $registro[$nombCampDesplegar] . '</option>';
+            //$html .= '<option value="' . $registro[$IdPk] . '">' . $registro[$nombCampDesplegar] . '</option>';
+            $html.='<option value="'.$registro[$idPk].'" 
+                '.(($p_seleccionado==$registro[$idPk])?"selected":"").'
+                >'.$registro[$nombCampDesplegar].'</option>';
         }
 
         return $html . '</select>';
